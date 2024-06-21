@@ -7,7 +7,7 @@ import isAuth from "../middleware/authentication.middleware.js";
 
 const router = express.Router();
 
-// route: url/destinations
+// SIGN UP (USERNAME, EMAIL, PASSWORD REQUIRED)
 router.post("/signup", async (req, res) => {
   try {
     const { email, username, password } = req.body;
@@ -44,7 +44,7 @@ router.post("/signup", async (req, res) => {
       return;
     }
     const salts = await bcrypt.genSalt();
-    const hashedPassword = await bcrypt.hash(password, salts)
+    const hashedPassword = await bcrypt.hash(password, salts);
     const createdUser = await User.create({
       email,
       username,
@@ -58,6 +58,8 @@ router.post("/signup", async (req, res) => {
   }
 });
 
+
+//LOG IN (PASSWORD REQUIRED, USERNAME OR EMAIL REQUIRED)
 router.post("/login", async (req, res) => {
   try {
     console.log(req.body);
@@ -101,6 +103,8 @@ router.post("/login", async (req, res) => {
   }
 });
 
+
+//CHECKS TOKEN AND AUTH USER
 router.get("/verify", isAuth, async (req, res) => {
   try {
     const user = await User.findById(req.user._id);
@@ -111,6 +115,8 @@ router.get("/verify", isAuth, async (req, res) => {
   }
 });
 
+
+//CHECKS IF ITS ADMIN
 router.get("/admin", isAuth, isAdmin, async (req, res) => {
   try {
     res.json({ message: "Addmin is logged in and verified", user: req.user });

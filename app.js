@@ -4,7 +4,7 @@ import connectDB from "./config/mongoose.config.js";
 import * as dotenv from "dotenv";
 import cors from "cors";
 import userRouter from "./routes/user.routes.js";
-//import reviewRouter from "./routes/review.routes.js";
+import reviewRouter from "./routes/review.routes.js";
 import planRouter from "./routes/plan.routes.js";
 
 //import routes
@@ -21,7 +21,7 @@ app.use(logger);
 
 app.use("/user", userRouter);
 app.use("/destinations", planRouter);
-// app.use("/review", reviewRouter);
+app.use("/review", reviewRouter);
 
 
 app.listen(process.env.PORT, () => {
