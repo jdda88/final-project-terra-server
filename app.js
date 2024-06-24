@@ -16,8 +16,9 @@ const logger = morgan("dev");
 
 app.use(express.json()); //to have access to req body
 app.use(logger);
+app.use(cors({origin: [process.env.REACT_URL]}))
 
-//ROUTES app.use
+//ROUTES app.usec
 
 app.use("/user", userRouter);
 app.use("/destinations", planRouter);
