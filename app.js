@@ -6,6 +6,7 @@ import cors from "cors";
 import userRouter from "./routes/user.routes.js";
 import reviewRouter from "./routes/review.routes.js";
 import planRouter from "./routes/plan.routes.js";
+import imageRouter from "./routes/image.routes.js"
 
 //import routes
 
@@ -19,11 +20,10 @@ app.use(logger);
 app.use(cors({origin: [process.env.REACT_URL]}))
 
 //ROUTES app.usec
-
 app.use("/user", userRouter);
 app.use("/plan", planRouter);
 app.use("/review", reviewRouter);
-
+app.use("/image", imageRouter);
 
 app.listen(process.env.PORT, () => {
   console.clear();
