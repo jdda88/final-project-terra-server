@@ -9,7 +9,7 @@ const reviewSchema = new Schema(
       required: true,
       trim: true,
       maxLength: 500,
-      minLength: 24,
+      minLength: 10,
     },
     plans: { type: Schema.Types.ObjectId, ref: "Plans", required: true },
     creator: { type: Schema.Types.ObjectId, ref: "User" },

@@ -21,7 +21,7 @@ app.use(cors({origin: [process.env.REACT_URL]}))
 //ROUTES app.usec
 
 app.use("/user", userRouter);
-app.use("/destinations", planRouter);
+app.use("/plan", planRouter);
 app.use("/review", reviewRouter);
 
 
