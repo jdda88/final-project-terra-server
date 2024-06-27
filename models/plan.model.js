@@ -6,7 +6,6 @@ const planSchema = new Schema(
     country: { type: String, required: true },
     cities: [{ type: String, required: false }],
     stats: {
-      type: String,
       officialLanguage: { type: String },
       population: { type: String },
       capitalCity: { type: String },
